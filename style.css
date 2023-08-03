@@ -1,9 +1,9 @@
 body {
     margin: 0px;
-    height: 100vh;
+     height: 100vh;  
     width: 100vw;
     background: linear-gradient(#79e4a6, #1bc296);
-}
+} 
 
 header {
     position: relative;
@@ -31,7 +31,7 @@ header {
     line-height: 40px;
     width: 0;
     transition: .5s;
-}
+} 
 
 .search-btn {
     width: 40px;
@@ -42,7 +42,7 @@ header {
     justify-content: center;
     align-items: center;
     transition: .5s;
-}
+} 
 
 .search-box:hover > .search-txt {
     width: 240px;
@@ -51,4 +51,44 @@ header {
 
 .search-box:hover > .search-btn {
     background: #f0f5fb;
+}
+
+.produto {
+    background-color: rgb(247, 241, 241);
+    border-radius: 20px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.377);
+    width: 300px;
+    height: 200px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+} 
+
+.teste {
+    background-color: #79e4a6;
+}
+
+#btn_adicionar {
+    border: none;
+    background: none;
+    outline: none;
+    padding: 0;
+    color: #f0f5fb;
+    font-size: 16px;
+    line-height: 40px;
+    width: 70px;
+    transition: .5s;
+}  
+
+#btn {
+    position: absolute;
+    background: #0c2137;
+    color: white;
+    outline: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }

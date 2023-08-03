@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Carrinho de Compras</title>
+</head>
+<body>
+    <label><h1>Carrinho de compras</h1></label>
+    <header class="search-box">
+            <input type="text" class="search-txt" placeholder="Carrinho">
+            <a href="#" class="search-btn">
+                <img src="imagens/loupe.png" alt="Lupa" height="20" width="20">
+            </a>
+    </header>
+    <div>
+        <button id="btn_adicionar">Adicionar</button>
+        <img src="imagens/carrinho-de-compras.png.png" alt="carrinho de compras" height="20" width="20">
+    </div>
+    <main>
+        <div class="produto">
+
+        </div>
+    </main>
+    
+    <script>
+        class CarrinhoCompras {
+            constructor(pesquisa) {
+                this.pesquisa = pesquisa;
+            }
+        }
+
+        const search_txt = document.querySelector('.search-txt');
+        const btn_adicionar = document.querySelector('#btn_adicionar');
+        const produto = document.querySelector('.produto');
+
+        let carrinho = [];
+
+        const gerenciarCarrinho = () => {
+            produto.innerHTML = '';
+
+            carrinho.forEach((el)=>{
+                const div = document.createElement('div');
+                const btn_remover = document.createElement('button');
+                btn_remover.innerHTML = 'Remover';
+                btn_remover.addEventListener('click', ()=>{
+                    const indexToRemove = carrinho.indexOf(el);
+                    if (indexToRemove !== -1) {
+                        carrinho.splice(indexToRemove, 1);
+                        div.remove();
+                    }
+                });
+
+                div.innerHTML = `Produto: ${el.pesquisa}`;
+                produto.appendChild(div);
+                div.appendChild(btn_remover);
+            });
+        }
+
+        btn_adicionar.addEventListener('click', () => {
+            const pesquisa = search_txt.value.trim();
+            if (pesquisa !== '') {
+                const cc = new CarrinhoCompras(pesquisa);
+                carrinho.push(cc);
+                console.log(carrinho);
+                gerenciarCarrinho();
+                search_txt.value = ''; 
+            } else {
+                console.log('O campo de pesquisa está vazio.');
+            }
+        });
+
+    </script>
+</body>
+</html>
